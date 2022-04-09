@@ -1,0 +1,15 @@
+-XX:StartFlightRecording=filename=recording.jfr,dumponexit=true
+
+jcmd <pid> JFR.start filename=recording.jfr dumponexit=true
+
+jcmd <pid> JFR.dump
+
+jps
+
+-javaagent:../health-report.jar
+
+jfr summary recording.jfr
+
+jfr print --categories 'Custom Events' recording.jfr
+
+/Users/bkorando/code-projects/jfr-presentation-examples/spring-petclinic/my-settings.jfc
